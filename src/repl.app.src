@@ -1,0 +1,16 @@
+{application, repl,
+ [{description, "OpenCensus REPL example"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {applications,
+   [kernel,
+    stdlib,
+    opencensus,
+    opencensus_erlang_prometheus
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.
