@@ -7,6 +7,10 @@
 %% API functions
 %%====================================================================
 run() ->
+    prometheus_registry:register_collector(oc_start_exporter_prometheus),
+    prometheus_httpd:start(),
+    measures(),
+    views(),
     read_eval_process().
 
 %%====================================================================
@@ -59,3 +63,13 @@ views() ->
                measure => 'repl/line_length',
                aggregation => size_distribution()}],
     [oc_stat_view:subscribe(V) || V <- Views].
+
+latency_distribution() ->
+    {oc_stat_aggregation_distribution, [{buckets, [0, 25, 50, 75, 100,
+                                                   100, 200, 400, 600, 
+                                                   800, 1000, 2000, 4000]}]}.
+
+size_distribution() -> 
+    {oc_stat_aggregation_distribution, [{buckets, [0, 5, 10, 15, 20, 40, 60, 80,
+                                                   100, 200, 400, 600, 800, 1000]}]}.
+
