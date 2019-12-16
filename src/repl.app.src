@@ -6,7 +6,9 @@
    [kernel,
     stdlib,
     opencensus,
-    opencensus_erlang_prometheus
+    opencensus_erlang_prometheus,
+    prometheus_httpd,
+    inets
    ]},
   {env,[]},
   {modules, []},
