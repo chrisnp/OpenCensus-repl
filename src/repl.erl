@@ -24,7 +24,14 @@ read_line() ->
     io:get_line("> ").
 
 process_line(Line) ->
-    string:uppercase(Line).
+    Start = erlang:monotonic_time(),    
+    Upper = string:uppercase(Line),
+    ocp:record('repl/latency', 
+                erlang:convert_time_unit(erlang:monotonic_time() - Start,
+                                                native, millisecond)),
+    ocp:record('repl/line_length', erlang:iolist_size(Line)),
+    Upper.
+
 
 measures() ->
     oc_stat_measure:new('repl/latency', "The latency in millisecs per REPL loop", millisecond),
