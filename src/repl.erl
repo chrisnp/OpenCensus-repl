@@ -25,7 +25,7 @@ read_eval_process() ->
     read_eval_process().
 
 read_line() ->
-    io:get_line("> ").
+    io:get_line("|> ").
 
 process_line(Line) ->
     Start = erlang:monotonic_time(),    
