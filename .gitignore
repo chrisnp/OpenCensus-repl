@@ -19,4 +19,7 @@ _build
 rebar3.crashdump
 *~
 
+*.bat
+*.sh
+*.ps1
 *.bak
