@@ -1,0 +1,7 @@
+scrape_config:
+  - job_name: 'ocmetrictutorial'
+
+scrape_interval: 10s
+
+static_configs:
+  - targets: ['localhost:8081']
