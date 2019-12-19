@@ -1,7 +1,7 @@
 OpenCensus repl
 ===============
 
-Tutorial app to demo OpenCensus metrics functionality
+*Tutorial app to demo OpenCensus metrics functionality*
 
 Requirements
 ------------
@@ -19,7 +19,7 @@ $ rebar3 compile
 Running the example
 -------------------
 
-This step involves running the tutorial application in one terminal 
+This involves running the tutorial application in one terminal 
 and then Prometheus itself in another terminal.
 ```
 rebar3 shell --sname repl@localhost
@@ -31,11 +31,11 @@ To enable Prometheus to scrape from your application, we have to point it toward
 whose server is running on “localhost:8081”.
 
 Running Prometheus
-==================
+------------------
 ```
-prometheus --config.file=promconfig.yaml
+prometheus --config.file=promconfig.yml
 ```
 
 Viewing your metrics
-====================
+--------------------
 With the above you should now be able to navigate to the Prometheus UI at http://localhost:9090
