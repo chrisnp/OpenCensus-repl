@@ -23,7 +23,6 @@ This involves running the tutorial application in one terminal
 and then Prometheus itself in another terminal.
 ```
 rebar3 shell --sname repl@localhost
-
 (repl@localhost)1> repl:run().
 ```
 
