@@ -18,13 +18,10 @@ run() ->
 %%====================================================================
 read_eval_process() ->
     ocp:with_tags(#{method => "repl"}),
-    Line = read_line(), %io:get_line("|> "),
+    Line = io:get_line("> "),
     Out = process_line(Line),
-    io:format("< ~s~n~n", [Out]),
+    io:format("~n< ~s~n~n", [Out]),
     read_eval_process().
-
-read_line() ->
-    io:get_line("|> ").
 
 process_line(Line) ->
     Start = erlang:monotonic_time(),    
@@ -34,7 +31,6 @@ process_line(Line) ->
                                                 native, millisecond)),
     ocp:record('repl/line_length', erlang:iolist_size(Line)),
     Upper.
-    % read_line().
 
 measures() ->
     oc_stat_measure:new('repl/latency', "The latency in millisecs per REPL loop", millisecond),
