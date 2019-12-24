@@ -18,13 +18,13 @@ run() ->
 %%====================================================================
 read_eval_process() ->
     ocp:with_tags(#{method => "repl"}),
-    Line = read_line(), %io:get_line("|> "),
+    Line = io:get_line("> "),
     Out = process_line(Line),
-    io:format("< ~s~n~n", [Out]),
+    io:format("~n< ~s~n~n", [Out]),
     read_eval_process().
 
-read_line() ->
-    io:get_line("|> ").
+% read_line() ->
+%     io:get_line("> ").
 
 process_line(Line) ->
     Start = erlang:monotonic_time(),    
